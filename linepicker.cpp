@@ -18,8 +18,8 @@ LinePicker::LinePicker(int index, bool bChecked, int line, QColor color, QWidget
     }
 
     m_pSpinBox = new QSpinBox();
-    m_pSpinBox->setValue(line > 0 ? line : 1);
     m_pSpinBox->setRange(1, SWIRHEIGHT);
+    m_pSpinBox->setValue(line > 0 ? line : 1);
     m_pSpinBox->setFixedWidth(50);
 
     m_pColorButton = new QLabel();

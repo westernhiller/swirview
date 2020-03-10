@@ -112,26 +112,31 @@ void SwirDialog::createGUI(QSize screenSize)
     clearColor.setHsv(255, 255, 63);
 
     QHBoxLayout* pLayout = new QHBoxLayout();
+//    pLayout->setSpacing(0);
+    pLayout->setMargin(0);
     QVBoxLayout* pVBLayout = new QVBoxLayout();
     m_pControl = new ControlPanel(this);
-    m_pControl->setFixedSize(screenSize.width()/2, screenSize.height()/2);
+    m_pControl->setFixedSize(770, 512);
+//    m_pControl->setFixedSize(screenSize.width()/2, screenSize.height()/2);
     pVBLayout->addWidget(m_pControl);
-
-    m_pPatch = new GLCanvas(this, imgSwir);
-    m_pPatch->setClearColor(clearColor);
-    m_pPatch->setFixedWidth(screenSize.width()/2);
-
-    pVBLayout->addWidget(m_pPatch);
+    m_pAnalyzer = new Analyzer(this);
+    m_pAnalyzer->setFixedWidth(770);
+    pVBLayout->addWidget(m_pAnalyzer);
     pLayout->addLayout(pVBLayout);
 
     QVBoxLayout* pCanvasLayout = new QVBoxLayout();
     m_pCamera = new GLCanvas(this, imgSwir);
     m_pCamera->setClearColor(clearColor);
-    m_pCamera->setFixedHeight(screenSize.height()/2);
+    int height = (screenSize.width() - 820) / 4 * 3;
+    m_pCamera->setFixedSize(screenSize.width() - 820, height);
     pCanvasLayout->addWidget(m_pCamera);
 
-    m_pAnalyzer = new Analyzer(this);
-    pCanvasLayout->addWidget(m_pAnalyzer);
+    m_pPatch = new GLCanvas(this, imgSwir);
+    m_pPatch->setClearColor(clearColor);
+    int h = screenSize.height() - height;
+    int w = h / 3 * 4;
+    m_pPatch->setFixedSize(w, h);
+    pCanvasLayout->addWidget(m_pPatch, 1, Qt::AlignCenter);
 
     pLayout->addLayout(pCanvasLayout);
 
