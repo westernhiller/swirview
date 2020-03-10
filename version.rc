@@ -1,0 +1,42 @@
+IDI_ICON1 ICON "swir.ico"
+
+#if defined(UNDER_CE)
+#include <winbase.h>
+#else
+#include <winver.h>
+#endif
+
+VS_VERSION_INFO VERSIONINFO
+    FILEVERSION 2,0,3,4
+    PRODUCTVERSION 2,0,3,4
+    FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+    FILEFLAGS VS_FF_DEBUG
+#else
+    FILEFLAGS 0x0L
+#endif
+    FILEOS VOS__WINDOWS32
+    FILETYPE VFT_DLL
+    FILESUBTYPE 0x0L
+    BEGIN
+        BLOCK "StringFileInfo"
+        BEGIN
+            BLOCK "080404b0"
+            BEGIN
+                VALUE "CompanyName", "中国上海技术物理研究所\0"
+                VALUE "FileDescription", "短波红外测试软件\0"
+                VALUE "FileVersion", "1.0.3.4\0"
+                VALUE "ProductVersion", "1.0.3.4\0"
+                VALUE "LegalCopyright", "版权所有 (C) 中国上海技术物理研究所\0"
+                VALUE "LegalTrademarks", "中国上海技术物理研究所\0"
+                VALUE "OriginalFilename", "swirtest.exe\0"
+                VALUE "ProductName", "短波红外测试软件\0"
+                VALUE "InternalName", "swirtest.exe\0"
+           END
+        END
+        
+        BLOCK "VarFileInfo"
+        BEGIN
+            VALUE "Translation", 0x804, 1200
+        END        
+    END

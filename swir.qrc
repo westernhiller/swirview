@@ -1,0 +1,12 @@
+﻿<RCC>
+    <qresource prefix="/">
+        <file>icons/swir.png</file>
+        <file>icons/photo.png</file>
+        <file>icons/photopressed.png</file>
+        <file>icons/record.png</file>
+        <file>icons/stop.png</file>
+        <file>icons/zoomin.png</file>
+        <file>icons/zoomout.png</file>
+        <file>icons/exit.ico</file>
+    </qresource>
+</RCC>
